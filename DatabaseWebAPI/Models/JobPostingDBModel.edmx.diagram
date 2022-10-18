@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c1ff61d42d674ecab00156db7ed5dfb2" Name="Diagram1">
+        <EntityTypeShape EntityType="jobPostingDBModel.tblStatu" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="jobPostingDBModel.tblJob" Width="1.5" PointX="5.25" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="jobPostingDBModel.tblRemoteService" Width="1.5" PointX="8.25" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="jobPostingDBModel.tblClient" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="jobPostingDBModel.tblLoginHistory" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="jobPostingDBModel.tblToken" Width="1.5" PointX="5.25" PointY="19" IsExpanded="true" />
+        <AssociationConnector Association="jobPostingDBModel.FK_tblClient_tblStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="jobPostingDBModel.FK_tblJobs_tblStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="jobPostingDBModel.FK_tblLoginHistory_tblStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="jobPostingDBModel.FK_tblRemoteServices_tblStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="jobPostingDBModel.FK_tblJobs_tblClient1" ManuallyRouted="false" />
+        <AssociationConnector Association="jobPostingDBModel.FK_tblJobs_tblClient2" ManuallyRouted="false" />
+        <AssociationConnector Association="jobPostingDBModel.FK_tblJobs_tblRemoteServices" ManuallyRouted="false" />
+        <AssociationConnector Association="jobPostingDBModel.FK_tblRemoteServices_tblClient1" ManuallyRouted="false" />
+        <AssociationConnector Association="jobPostingDBModel.FK_tblRemoteServices_tblClient2" ManuallyRouted="false" />
+        <AssociationConnector Association="jobPostingDBModel.FK_tblClient_tblClient1" ManuallyRouted="false" />
+        <AssociationConnector Association="jobPostingDBModel.FK_tblClient_tblClient2" ManuallyRouted="false" />
+        <AssociationConnector Association="jobPostingDBModel.FK_tblLoaginHistory_tblClient" ManuallyRouted="false" />
+        <AssociationConnector Association="jobPostingDBModel.FK_tblTokens_tblClient" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
