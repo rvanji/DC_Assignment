@@ -1,0 +1,2135 @@
+
+<div class="d-inline-block form-wrapper-div pt-20 px-12 w-100pc">
+    <div class="my-profile-page w-100pc">
+        <div id="forms" class="page-layout simple fullwidth  w-100pc" fxLayout="column">
+            <div class="example-container">
+                <form class="mat-elevation-z4 " name="form" [formGroup]="Editform">
+
+
+                    <div fxLayout="column">
+
+
+
+                        <mat-accordion>
+
+
+                            <!--<div class="mat-card simple mb-10 profile-pictures" fxLayout="column" fxFlex="1 1 100" fxFlex.gt-sm="1 1 40">
+                                <div class="p-24">
+
+                                </div>
+                            </div>-->
+
+
+                            <div>
+                                <!--<div class="mat-card simple mb-10 user-detail-wrapper" fxLayout="column" fxFlex="1 1 100" fxFlex.gt-sm="1 1 60">-->
+                                <div class="mat-card simple mb-10 user-detail-wrapper" fxLayout="column" fxLayoutAlign="space-evenly stretch">
+                                    <!--<div fxFlex="100" fxLayout="column" fxLayout.gt-sm="row"></div>-->
+                                    <div class="p-24">
+                                        <div class="mat-horizontal-content-container--body">
+                                            <div fxLayout="column">
+                                                <mat-expansion-panel>
+                                                    <mat-expansion-panel-header>
+                                                        <mat-panel-title style="min-width:40%">
+                                                            Primary
+                                                        </mat-panel-title>
+                                                        <mat-panel-description>
+                                                            Your Basic Information.
+                                                        </mat-panel-description>
+                                                    </mat-expansion-panel-header>
+
+                                                    <h5 style="font-weight:700">Profile Picture</h5>
+
+                                                    <div fxLayout="row">
+                                                        <!--<div fxLayout="row" fxLayout.gt-xs="row">
+
+                                                        </div>-->
+                                                        <div fxLayout="column" fxFlex="100" fxLayoutAlign="center center" class="side-profile side-profile-image-left mb-20">
+                                                            <label class="font-regular text-center mb-20">Front image of your face</label>
+                                                            <img src="{{image}}" class="circle-img mb-10" />
+                                                            <div fxLayout="row" fxLayoutAlign="center center" class="image-icons">
+                                                                <button [disabled]="iseditable" *ngIf="!iseditable" mat-button matSuffix mat-icon-button aria-label="" class="mx-5" matTooltip="Edit" (click)="selectFile.click()">
+                                                                    <mat-icon class="mat-icon-edit">edit</mat-icon>
+                                                                </button>
+                                                                <button [disabled]="iseditable" *ngIf="!iseditable" mat-button matSuffix mat-icon-button class="mx-5" (click)="FrontCaptureUpdateDialog()" matTooltip="Capture"><mat-icon>add_a_photo</mat-icon></button>
+                                                                <input type="file" (change)="getImage($event)" style="display: none" #selectFile>
+                                                            </div>
+                                                        </div>
+
+                                                        <div fxLayout="column" fxFlex="100" fxLayoutAlign="start center" class="side-profile side-profile-image-left mb-20">
+                                                            <label class="font-regular text-center mb-20">Left side image of your face</label>
+                                                            <img src="{{LSimage}}" class="circle-img mb-10" title="Left Side Image" />
+                                                            <div fxLayout="row" fxLayoutAlign="center center" class="image-icons">
+                                                                <button [disabled]="iseditable" *ngIf="!iseditable" mat-button matSuffix mat-icon-button aria-label="" class="mx-5" matTooltip="Edit" (click)="selectFile2.click()">
+                                                                    <mat-icon class="mat-icon-edit">edit</mat-icon>
+                                                                </button>
+                                                                <button [disabled]="iseditable" *ngIf="!iseditable" mat-button matSuffix mat-icon-button class="mx-5" (click)="LeftCaptureUpdateDialog()" matTooltip="Capture"><mat-icon>add_a_photo</mat-icon></button>
+                                                                <input type="file" (change)="getImage2($event)" style="display: none" #selectFile2>
+                                                            </div>
+                                                        </div>
+                                                        <div fxLayout="column" fxFlex="100" fxLayoutAlign="start center" class="mb-20 side-profile">
+                                                            <label class="font-regular text-center mb-20">Right side image of your face</label>
+                                                            <img src="{{RSimage}}" class="circle-img mb-10" title="Right Side Image" />
+                                                            <div fxLayout="row" fxLayoutAlign="center center" class="image-icons">
+                                                                <button [disabled]="iseditable" *ngIf="!iseditable" mat-button matSuffix mat-icon-button aria-label="" class="mx-5" matTooltip="Edit" (click)="selectFile3.click()">
+                                                                    <mat-icon class="mat-icon-edit">edit</mat-icon>
+                                                                </button>
+                                                                <button [disabled]="iseditable" *ngIf="!iseditable" mat-button matSuffix mat-icon-button class="mx-5" matTooltip="Capture" (click)="RightCaptureUpdateDialog()"><mat-icon>add_a_photo</mat-icon></button>
+                                                                <input type="file" (change)="getImage3($event)" style="display: none" #selectFile3>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <hr />
+
+                                                    <h5 style="font-weight:700" class="mt-0">Basic Details</h5>
+                                                    <div fxLayout="column" fxLayout.gt-xs="row">
+                                                        <mat-form-field appearance="outline"
+                                                                        class="pr-sm-8 inputControl"
+                                                                        fxFlex="11.11">
+                                                            <mat-label>Title</mat-label>
+                                                            <mat-select matNativeControl formControlName="TitleEdit" required [disabled]="iseditable">
+                                                                <mat-option value="Mr">Mr.</mat-option>
+                                                                <mat-option value="Mrs">Mrs.</mat-option>
+                                                                <mat-option value="Miss">Miss.</mat-option>
+                                                                <mat-option value="Dr">Dr.</mat-option>
+                                                                <mat-option value="Rev">Rev.</mat-option>
+                                                            </mat-select>
+                                                            <mat-error>
+                                                                Title Name is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+                                                        <mat-form-field appearance="outline"
+                                                                        class="pr-sm-8 inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>First Name</mat-label>
+                                                            <input matInput [readonly]="iseditable"
+                                                                   formControlName="FirstNameEdit" (keyup)="buildFullNameEdit($event)"
+                                                                   required />
+                                                            <mat-error>
+                                                                First Name is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class=" pr-sm-8 no-errors-spacer inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>Last Name</mat-label>
+                                                            <input matInput (keyup)="buildFullNameEdit($event)" [readonly]="iseditable"
+                                                                   formControlName="LastNameEdit" required />
+                                                            <mat-error>
+                                                                Last Name is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+                                                        <mat-form-field appearance="outline" fxFlex="33.33" class="pr-sm-8 inputControl">
+                                                            <mat-label>Name</mat-label>
+                                                            <input matInput readonly
+                                                                   formControlName="NameEdit" />
+                                                            <mat-error>Name is required!</mat-error>
+                                                        </mat-form-field>
+                                                    </div>
+
+                                                    <h5 style="font-weight:700" class="mt-0">Biometrics</h5>
+                                                    <div fxLayout="column" fxLayout.gt-xs="row">
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class=" pr-sm-8 no-errors-spacer inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>Height in cm</mat-label>
+                                                            <input matInput [readonly]="iseditable"
+                                                                   formControlName="HeightEdit" />
+
+                                                        </mat-form-field>
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class=" pr-sm-8 no-errors-spacer inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>Weight in kg</mat-label>
+                                                            <input matInput [readonly]="iseditable"
+                                                                   formControlName="WeightEdit" />
+
+                                                        </mat-form-field>
+                                                    </div>
+                                                    <div fxLayout="column" fxLayout.gt-xs="row">
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class=" pr-sm-8 no-errors-spacer inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>Religious Views</mat-label>
+                                                            <input matInput [readonly]="iseditable"
+                                                                   formControlName="ReligionEdit" />
+
+                                                        </mat-form-field>
+
+
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class="pr-sm-8 inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>Nationality</mat-label>
+                                                            <mat-select matNativeControl required formControlName="NationalityEdit" [disabled]="iseditable">
+                                                                <mat-option value="" disabled selected>Select Country</mat-option>
+                                                                <mat-option *ngFor="let country of countries" [value]="country.name">{{country.name}}</mat-option>
+
+                                                            </mat-select>
+                                                            <mat-error>
+                                                                Nationality Name is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+
+                                                    </div>
+
+
+
+                                                    <div fxLayout="column" fxLayout.gt-xs="row">
+
+                                                        <h5 style="font-weight:700" class="mt-0"> Permanent Address</h5>
+
+                                                    </div>
+
+
+                                                    <div fxLayout="column" fxLayout.gt-xs="row">
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class="pr-sm-8 inputControl"
+                                                                        fxFlex="20">
+                                                            <mat-label>House Number</mat-label>
+                                                            <input matInput [readonly]="iseditable"
+                                                                   formControlName="OHouseNoEdit"
+                                                                   required />
+                                                            <mat-error>
+                                                                House Number is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class="pr-sm-8 inputControl"
+                                                                        fxFlex="30">
+                                                            <mat-label>Address Line 1</mat-label>
+                                                            <input matInput [readonly]="iseditable"
+                                                                   formControlName="OAddrLine1Edit"
+                                                                   required />
+                                                            <mat-error>
+                                                                Address Line 1 is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class="pr-sm-8 inputControl"
+                                                                        fxFlex="30">
+                                                            <mat-label>Address Line 2</mat-label>
+                                                            <input matInput [readonly]="iseditable"
+                                                                   formControlName="OAddrLine2Edit"
+                                                                   required />
+                                                            <mat-error>
+                                                                Address Line 2 is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class="pr-sm-8 inputControl"
+                                                                        fxFlex="20">
+                                                            <mat-label>Postal Code</mat-label>
+                                                            <input matInput [readonly]="iseditable"
+                                                                   formControlName="OPostalCodeEdit"
+                                                                   required />
+                                                            <mat-error>
+                                                                Postal Code is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+                                                    </div>
+
+                                                    <div fxLayout="column" fxLayout.gt-xs="row">
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class="pr-sm-8 inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>Grama Niladhari Division</mat-label>
+                                                            <input matInput [readonly]="iseditable"
+                                                                   formControlName="OGramaNiladariDivEdit"
+                                                                   required />
+                                                            <mat-error>
+                                                                Grama Niladhari Division is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class="pr-sm-8 inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>City</mat-label>
+                                                            <input matInput [readonly]="iseditable"
+                                                                   formControlName="OCityEdit"
+                                                                   required />
+                                                            <mat-error>
+                                                                City is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class=" pr-sm-8 no-errors-spacer inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>District</mat-label>
+
+                                                            <mat-select matNativeControl required formControlName="ODistrictEdit" [disabled]="iseditable">
+                                                                <mat-option value="" disabled selected>Select District</mat-option>
+                                                                <mat-option *ngFor="let district of districts" [value]="district.name">{{district.name}}</mat-option>
+
+                                                            </mat-select>
+                                                            <mat-error>
+                                                                District is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class=" pr-sm-8 no-errors-spacer inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>Province</mat-label>
+
+                                                            <mat-select matNativeControl required formControlName="OProvinceEdit" [disabled]="iseditable">
+                                                                <mat-option value="" disabled selected>Select Province</mat-option>
+                                                                <mat-option *ngFor="let province of provinces" [value]="province.name">{{province.name}}</mat-option>
+
+                                                            </mat-select>
+                                                            <mat-error>
+                                                                Province is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+
+
+                                                    </div>
+
+                                                    <div fxLayout="column" fxLayout.gt-xs="row">
+                                                        <mat-form-field appearance="outline"
+                                                                        class="pr-sm-8 inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>Property Details</mat-label>
+                                                            <mat-select matNativeControl formControlName="PropertyTypeEdit" required [readonly]="iseditable">
+                                                                <mat-option value="Owned Property">Owned Property.</mat-option>
+                                                                <mat-option value="Rented Property">Rented Property.</mat-option>
+                                                                <mat-option value="Living With Parents">Living with Parents.</mat-option>
+
+                                                            </mat-select>
+                                                            <mat-error>
+                                                                Property Details are required
+                                                            </mat-error>
+                                                        </mat-form-field>
+
+                                                    </div>
+
+                                                    <div fxLayout="column" fxLayout.gt-xs="row">
+
+                                                        <h5 style="font-weight:700" class="mt-0"> Postal Address</h5>
+
+                                                    </div>
+
+
+                                                    <div fxLayout="column" fxLayout.gt-xs="row">
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class="pr-sm-8 inputControl"
+                                                                        fxFlex="20">
+                                                            <mat-label>House Number</mat-label>
+                                                            <input matInput [readonly]="iseditable"
+                                                                   formControlName="PHouseNoEdit"
+                                                                   required />
+                                                            <mat-error>
+                                                                House Number is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class="pr-sm-8 inputControl"
+                                                                        fxFlex="30">
+                                                            <mat-label>Address Line 1</mat-label>
+                                                            <input matInput [readonly]="iseditable"
+                                                                   formControlName="PAddrLine1Edit"
+                                                                   required />
+                                                            <mat-error>
+                                                                Address Line 1 is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class="pr-sm-8 inputControl"
+                                                                        fxFlex="30">
+                                                            <mat-label>Address Line 2</mat-label>
+                                                            <input matInput [readonly]="iseditable"
+                                                                   formControlName="PAddrLine2Edit"
+                                                                   required />
+                                                            <mat-error>
+                                                                Address Line 2 is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class="pr-sm-8 inputControl"
+                                                                        fxFlex="20">
+                                                            <mat-label>Postal Code</mat-label>
+                                                            <input matInput [readonly]="iseditable"
+                                                                   formControlName="PPostalCodeEdit"
+                                                                   required />
+                                                            <mat-error>
+                                                                Postal Code is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+                                                    </div>
+
+                                                    <div fxLayout="column" fxLayout.gt-xs="row">
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class="pr-sm-8 inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>Grama Niladhari Division</mat-label>
+                                                            <input matInput [readonly]="iseditable"
+                                                                   formControlName="PGramaNiladariDivEdit"
+                                                                   required />
+                                                            <mat-error>
+                                                                Grama Niladhari Division is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class="pr-sm-8 inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>City</mat-label>
+                                                            <input matInput [readonly]="iseditable"
+                                                                   formControlName="PCityEdit"
+                                                                   required />
+                                                            <mat-error>
+                                                                City is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class=" pr-sm-8 no-errors-spacer inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>District</mat-label>
+
+                                                            <mat-select matNativeControl required formControlName="PDistrictEdit" [disabled]="iseditable">
+                                                                <mat-option value="" disabled selected>Select District</mat-option>
+                                                                <mat-option *ngFor="let district of districts" [value]="district.name">{{district.name}}</mat-option>
+
+                                                            </mat-select>
+                                                            <mat-error>
+                                                                District is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class=" pr-sm-8 no-errors-spacer inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>Province</mat-label>
+
+                                                            <mat-select matNativeControl required formControlName="PProvinceEdit" [disabled]="iseditable">
+                                                                <mat-option value="" disabled selected>Select Province</mat-option>
+                                                                <mat-option *ngFor="let province of provinces" [value]="province.name">{{province.name}}</mat-option>
+
+                                                            </mat-select>
+                                                            <mat-error>
+                                                                Province is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+
+
+                                                    </div>
+
+                                                    <!--<div fxLayout="column" fxLayout.gt-xs="row">
+                                                        <mat-form-field appearance="outline"
+                                                                        class="pr-sm-8 inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>Property Details</mat-label>
+                                                            <mat-select matNativeControl formControlName="PPropertyTypeEdit" required [readonly]="iseditable">
+                                                                <mat-option value="Owned Property">Owned Property.</mat-option>
+                                                                <mat-option value="Rented Property">Rented Property.</mat-option>
+                                                                <mat-option value="Living With Parents">Living with Parents.</mat-option>
+
+                                                            </mat-select>
+                                                            <mat-error>
+                                                                Property Details are required
+                                                            </mat-error>
+                                                        </mat-form-field>
+
+                                                    </div>-->
+
+
+
+                                                    <h5 style="font-weight:700" class="mt-0">Birth Details</h5>
+                                                    <div fxLayout="column" fxLayout.gt-xs="row">
+
+
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class="pr-sm-8 inputControl"
+                                                                        fxFlex="15">
+                                                            <mat-label>Date of Birth</mat-label>
+                                                            <input matInput [matDatepicker]="picker" [max]="maxDate" [disabled]="iseditable" (dateInput)="ageCalculatorEdit($event.target.value)" readonly required
+                                                                   formControlName="DOBEdit" />
+                                                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                                            <mat-datepicker #picker></mat-datepicker>
+                                                        </mat-form-field>
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class=" pr-sm-8 no-errors-spacer inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>Place Of Birth</mat-label>
+                                                            <input matInput [readonly]="iseditable"
+                                                                   formControlName="PlaceOBEdit" />
+                                                            <mat-error>
+                                                                Place of Birth is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class=" pr-sm-8 no-errors-spacer inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>Country Of Birth</mat-label>
+
+                                                            <mat-select matNativeControl required formControlName="CountryOBEdit" [disabled]="iseditable">
+                                                                <mat-option value="" disabled selected>Select Country</mat-option>
+                                                                <mat-option *ngFor="let country of countries" [value]="country.name">{{country.name}}</mat-option>
+
+                                                            </mat-select>
+                                                            <mat-error>
+                                                                Place of Birth is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+                                                    </div>
+                                                    <div fxLayout="column" fxLayout.gt-xs="row">
+                                                        <mat-form-field appearance="outline"
+                                                                        class=" pr-sm-8 no-errors-spacer inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>Birth Certificate Number</mat-label>
+                                                            <input matInput [readonly]="iseditable"
+                                                                   formControlName="BCNoEdit" />
+                                                            <mat-error>
+                                                                Birth Certificate Number is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class="pr-sm-8 inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>Birth Certificate Registration Date</mat-label>
+                                                            <input matInput [matDatepicker]="pickerbcrd" (click)="pickerbcrd.open()" [disabled]="iseditable" readonly
+                                                                   formControlName="DateOfRegEdit" />
+                                                            <mat-datepicker-toggle matSuffix [for]="pickerbcrd"></mat-datepicker-toggle>
+                                                            <mat-datepicker #pickerbcrd></mat-datepicker>
+                                                        </mat-form-field>
+
+
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class=" pr-sm-8 no-errors-spacer inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>Division</mat-label>
+                                                            <input matInput [readonly]="iseditable"
+                                                                   formControlName="DivisionOBEdit" />
+                                                            <mat-error>
+                                                                Division is Required
+                                                            </mat-error>
+                                                        </mat-form-field>
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class=" pr-sm-8 no-errors-spacer inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>District</mat-label>
+                                                            <input matInput [readonly]="iseditable"
+                                                                   formControlName="DistrictOBEdit" />
+                                                            <mat-error>
+                                                                District is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+
+                                                    </div>
+
+                                                    <h5 style="font-weight:700" class="mt-0">Contact Details</h5>
+                                                    <div fxLayout="column" fxLayout.gt-xs="row">
+
+
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class="pr-sm-8 inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>Email</mat-label>
+                                                            <input matInput [readonly]="iseditable"
+                                                                   formControlName="EmailEdit"
+                                                                   required />
+                                                            <mat-error *ngIf="Editform.get('EmailEdit').hasError('required')">
+                                                                Email is required
+                                                            </mat-error>
+                                                            <mat-error *ngIf="Editform.get('EmailEdit').hasError('email')">
+                                                                Email is not in correct format
+                                                            </mat-error>
+                                                        </mat-form-field>
+                                                        <mat-form-field appearance="outline"
+                                                                        class=" pr-sm-8 inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>Mobile Number</mat-label>
+                                                            <input matInput formControlName="MobileNumberEdit" required min="10" maxlength="15" [readonly]="iseditable" (keypress)="numberOnly($event);" />
+                                                            <mat-error>Please enter a valid contact number!</mat-error>
+
+                                                        </mat-form-field>
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class=" pr-sm-8 no-errors-spacer inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>Landline Number</mat-label>
+                                                            <input matInput min="10" maxlength="15" [readonly]="iseditable"
+                                                                   formControlName="LandlineEdit" (keypress)="numberOnly($event);" />
+                                                            <mat-error>Please enter a valid contact number!</mat-error>
+
+                                                        </mat-form-field>
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class=" pr-sm-8 no-errors-spacer inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>Office Number</mat-label>
+                                                            <input matInput min="10" maxlength="15" [readonly]="iseditable"
+                                                                   formControlName="OfficeNumberEdit" (keypress)="numberOnly($event);" />
+                                                            <mat-error>Please enter a valid contact number!</mat-error>
+
+                                                        </mat-form-field>
+
+
+
+                                                    </div>
+
+                                                    <h5 style="font-weight:700" class="mt-0">Emergency Contact Details</h5>
+                                                    <div fxLayout="column" fxLayout.gt-xs="row">
+
+
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class=" pr-sm-8 no-errors-spacer inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>Name of Emergency Contact</mat-label>
+                                                            <input matInput [readonly]="iseditable"
+                                                                   formControlName="EmergNameEdit" required />
+                                                            <mat-error>
+                                                                Emergency Contact is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class=" pr-sm-8 no-errors-spacer inputControl"
+                                                                        fxFlex="18">
+                                                            <mat-label>Relationship with Emergency Contact Person</mat-label>
+                                                            <input matInput [readonly]="iseditable"
+                                                                   formControlName="EmergRelationshipEdit" required />
+                                                            <mat-error>
+                                                                Emergency Contact Relationship is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class=" pr-sm-8 inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>Mobile Number</mat-label>
+                                                            <input matInput formControlName="EmergMobileEdit" required min="10" maxlength="15" [readonly]="iseditable" (keypress)="numberOnly($event);" />
+                                                            <mat-error>Please enter a valid contact number!</mat-error>
+
+                                                        </mat-form-field>
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class=" pr-sm-8 no-errors-spacer inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>Landline Number</mat-label>
+                                                            <input matInput min="10" maxlength="15" [readonly]="iseditable"
+                                                                   formControlName="EmergLandEdit" (keypress)="numberOnly($event);" />
+                                                            <mat-error>Please enter a valid contact number!</mat-error>
+
+                                                        </mat-form-field>
+
+                                                    </div>
+
+                                                    <h5 style="font-weight:700" class="mt-0">Meal and Beverage Prefernces</h5>
+                                                    <div fxLayout="column" fxLayout.gt-xs="row">
+
+
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class="pr-sm-8 inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>Meal Preference</mat-label>
+                                                            <mat-select matNativeControl formControlName="MealPrefEdit" [disabled]="iseditable">
+                                                                <mat-option value="NonVeg">Non Vegetarian.</mat-option>
+                                                                <mat-option value="Veg">Vegetarian.</mat-option>
+                                                                <mat-option value="Vegan">Vegan.</mat-option>
+                                                                <mat-option value="Pes">Pescatarian.</mat-option>
+                                                            </mat-select>
+                                                            <mat-error>
+                                                                Meal Preference is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class="pr-sm-8 inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>Beverage Preference</mat-label>
+                                                            <mat-select matNativeControl formControlName="BeveragePrefEdit" [disabled]="iseditable">
+                                                                <mat-option value="Alc">Alcoholic.</mat-option>
+                                                                <mat-option value="NonAlc">Non Alcoholic.</mat-option>
+
+                                                            </mat-select>
+                                                            <mat-error>
+                                                                Beverage Preference is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+
+
+                                                    </div>
+
+                                                    <h5 style="font-weight:700" class="mt-0">Mode of Transportation To Work</h5>
+                                                    <div fxLayout="column" fxLayout.gt-xs="row">
+
+
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class=" pr-sm-8 no-errors-spacer inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>Type of Transportation </mat-label>
+
+
+
+                                                            <mat-select formControlName="TranspoTypeEdit" name="countryName" #ty [(ngModel)]="selectedTtype" (ngModelChange)="onTypeSelect($event)" [disabled]="iseditable">
+                                                                <mat-option *ngFor="let t of Ttypes" value="{{ t }}"> {{ t }} </mat-option>
+                                                            </mat-select>
+
+                                                            <mat-error>
+                                                                Type of Transportation is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class=" pr-sm-8 no-errors-spacer inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>Mode of Transportation</mat-label>
+
+
+                                                            <mat-select formControlName="TranspoModeEdit" name="states" id="states" [(ngModel)]="selectedTmode" [disabled]="iseditable">
+                                                                <mat-option *ngFor="let s of filteredStates" value="{{ s }}"> {{ s }} </mat-option>
+                                                            </mat-select>
+
+                                                            <mat-error>
+                                                                Mode of Transportation is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class=" pr-sm-8 no-errors-spacer inputControl"
+                                                                        fxFlex="33.33" *ngIf="ty.value == 'Private'">
+                                                            <mat-label>Vehicle Number</mat-label>
+                                                            <input matInput [disabled]="iseditable"
+                                                                   formControlName="VehicleNoEdit" required />
+
+                                                        </mat-form-field>
+
+                                                    </div>
+
+
+
+                                                    <h5 style="font-weight:700" class="mt-0">Registered User Groups</h5>
+                                                    <div fxLayout="column" fxLayout.gt-xs="row">
+                                                        <div style="margin-top: 4px">
+                                                            <ul>
+                                                                <li *ngFor="let group of userGroups">
+                                                                    {{group.userGroup}}
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <h5 style="font-weight:700" class="mt-0">Signature</h5>
+                                                    <div fxLayout="column" fxLayout.gt-xs="row">
+
+                                                        <div fxLayout="column" fxFlex="50" class="pr-sm-8 no-side-padding-960">
+                                                            <mat-form-field appearance="outline" fxFlex="100" class="inputControl user-notes">
+                                                                <mat-label>Notes</mat-label>
+                                                                <textarea matInput [readonly]="iseditable" formControlName="RemarkEdit" rows="5">  </textarea>
+                                                            </mat-form-field>
+                                                        </div>
+                                                        <div *ngIf="!isSignatureEdited" fxLayout="column" fxFlex="50" class="pr-sm-8 no-side-padding-960 ">
+
+                                                            <div fxFlex="100" fxLayout="row" class="pr-sm-8">
+                                                                <div *ngIf="isDigitalSignature">
+
+                                                                    <div class="signature-container">
+                                                                        <signature-pad [disabled]="iseditable" [options]="signaturePadOptions" (onEndEvent)="drawComplete()"></signature-pad>
+                                                                    </div>
+                                                                    <button mat-raised-button color="primary" [disabled]="iseditable" type="button" class="mr-8 btn-small-11" (click)="clearSignature()">Clear signature</button>
+
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+                                                        <div fxLayout="column" fxFlex="50" class="pr-sm-8 no-side-padding-960 ">
+
+
+                                                            <div *ngIf="signaturetype === 'Digital'">
+                                                                <div class="signature-image">
+                                                                    <img src='{{ Usersoptions[0].digitalSignArr }}' />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+
+
+
+                                                </mat-expansion-panel>
+
+
+                                                <mat-expansion-panel (opened)="panelOpenState = true"
+                                                                     (closed)="panelOpenState = false">
+                                                    <mat-expansion-panel-header>
+                                                        <mat-panel-title style="min-width:40%">
+                                                            Family
+                                                        </mat-panel-title>
+                                                        <mat-panel-description>
+                                                            Information about your Family
+                                                        </mat-panel-description>
+                                                    </mat-expansion-panel-header>
+
+                                                    <h5 style="font-weight:700" class="mt-0">Parent Details</h5>
+                                                    <h6 style="font-weight:600"> Mother </h6>
+                                                    <!--<div fxLayout="column" fxLayout.gt-xs="row">-->
+                                                    <!--< mat-form-field appearance="outline"
+                                                                    class="pr-sm-8 inputCo ntrol"
+                                                                    fxFlex="33. 33">
+
+                                                        <input matInput value="Mother" readonly
+                                                               formControlName="FamCodeMEdit"
+                                                               required />
+
+                                                    </mat-form-field>-->
+                                                    <!--</div>-->
+                                                    <div fxLayout="column" fxLayout.gt-xs="row">
+                                                        <mat-form-field appearance="outline"
+                                                                        class="pr-sm-8 inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>Mother's First Name</mat-label>
+                                                            <input matInput [readonly]="iseditable"
+                                                                   formControlName="FFirstNameMEdit"
+                                                                   required />
+                                                            <mat-error>
+                                                                Mother's First Name is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class=" pr-sm-8 no-errors-spacer inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>Mother's 'Last Name</mat-label>
+                                                            <input matInput [readonly]="iseditable"
+                                                                   formControlName="FLastNameMEdit" required />
+                                                            <mat-error>
+                                                                Mother's' Last Name is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+
+
+
+
+
+                                                    </div>
+                                                    <div fxLayout="column" fxLayout.gt-xs="row">
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class="pr-sm-8 inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>Mother's 'Date of Birth</mat-label>
+                                                            <input matInput [matDatepicker]="pickermot" (click)="pickermot.open()" [disabled]="iseditable" readonly
+                                                                   formControlName="FDOBMEdit" />
+                                                            <mat-datepicker-toggle matSuffix [for]="pickermot"></mat-datepicker-toggle>
+                                                            <mat-datepicker #pickermot></mat-datepicker>
+                                                        </mat-form-field>
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class=" pr-sm-8 no-errors-spacer inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>Mother's 'NIC Number</mat-label>
+                                                            <input matInput [readonly]="iseditable"
+                                                                   formControlName="FNICMEdit" required />
+                                                            <mat-error>
+                                                                NIC Number is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+
+                                                    </div>
+
+
+                                                    <h6 style="font-weight:600"> Father </h6>
+
+                                                    <div fxLayout="column" fxLayout.gt-xs="row">
+                                                        <mat-form-field appearance="outline"
+                                                                        class="pr-sm-8 inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>Father's First Name</mat-label>
+                                                            <input matInput [readonly]="iseditable"
+                                                                   formControlName="FFirstNameFEdit"
+                                                                   required />
+                                                            <mat-error>
+                                                                Father's First Name is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class=" pr-sm-8 no-errors-spacer inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>Father's 'Last Name</mat-label>
+                                                            <input matInput [readonly]="iseditable"
+                                                                   formControlName="FLastNameFEdit" required />
+                                                            <mat-error>
+                                                                Father's' Last Name is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+
+
+
+
+
+                                                    </div>
+                                                    <div fxLayout="column" fxLayout.gt-xs="row">
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class="pr-sm-8 inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>Father's 'Date of Birth</mat-label>
+                                                            <input matInput [matDatepicker]="pickerfat" (click)="pickerfat.open()" [disabled]="iseditable" readonly
+                                                                   formControlName="FDOBFEdit" />
+                                                            <mat-datepicker-toggle matSuffix [for]="pickerfat"></mat-datepicker-toggle>
+                                                            <mat-datepicker #pickerfat></mat-datepicker>
+                                                        </mat-form-field>
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class=" pr-sm-8 no-errors-spacer inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>Father's 'NIC Number</mat-label>
+                                                            <input matInput [readonly]="iseditable"
+                                                                   formControlName="FNICFEdit" required />
+                                                            <mat-error>
+                                                                NIC Number is required
+                                                            </mat-error>
+                                                        </mat-form-field>
+
+                                                    </div>
+
+
+
+                                                    <div fxLayout="column" fxLayout.gt-xs="row" style="margin-top:2%">
+                                                        <h5 style="min-width: 90px; max-width: 91px; font-weight: 600" class="mt-0">Spouse Details</h5> <br />
+                                                        <span style="min-width: 60px; max-width: 61px">
+                                                            <mat-button>
+                                                                <mat-icon style="padding-left: 5px; color:#17780E;" (click)="addnewsp()"> add_circle </mat-icon>
+                                                            </mat-button>
+
+                                                        </span>
+                                                    </div>
+                                                    <div *ngFor=" let i = index; let spou of a().controls;" class="list-group list-group-flush">
+                                                        <div [formGroup]="spou">
+                                                            <div fxLayout="column" fxLayout.gt-xs="row">
+                                                                <!--<mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="33.33">
+
+                                                                    <input matInput value="Spouse" readonly
+                                                                           formControlName="FamCodeSEdit"
+                                                                           required />
+
+                                                                </mat-form-field>-->
+
+                                                            </div>
+                                                            <div fxLayout="column" fxLayout.gt-xs="row">
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Spouse's First Name</mat-label>
+                                                                    <input matInput [readonly]="iseditable"
+                                                                           formControlName="FFirstNameSEdit"
+                                                                           required />
+                                                                    <mat-error>
+                                                                        Spouse's First Name is required
+                                                                    </mat-error>
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class=" pr-sm-8 no-errors-spacer inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Spouse's 'Last Name</mat-label>
+                                                                    <input matInput [readonly]="iseditable"
+                                                                           formControlName="FLastNameSEdit" required />
+                                                                    <mat-error>
+                                                                        Spouse's' Last Name is required
+                                                                    </mat-error>
+                                                                </mat-form-field>
+
+
+
+
+
+                                                            </div>
+                                                            <div fxLayout="column" fxLayout.gt-xs="row">
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Spouse's 'Date of Birth</mat-label>
+                                                                    <input matInput [matDatepicker]="pickerspo" (click)="pickerspo.open()" [disabled]="iseditable" readonly
+                                                                           formControlName="FDOBSEdit" />
+                                                                    <mat-datepicker-toggle matSuffix [for]="pickerspo"></mat-datepicker-toggle>
+                                                                    <mat-datepicker #pickerspo></mat-datepicker>
+                                                                </mat-form-field>
+
+
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class=" pr-sm-8 no-errors-spacer inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Spouse's 'NIC Number</mat-label>
+                                                                    <input matInput [readonly]="iseditable"
+                                                                           formControlName="FNICSEdit" required />
+                                                                    <mat-error>
+                                                                        NIC Number is required
+                                                                    </mat-error>
+                                                                </mat-form-field>
+
+                                                            </div>
+
+                                                            <mat-button>
+                                                                <mat-icon style="padding: 5px; color: #FF0B24;  " (click)="removeSpouce(i)"> remove_circle </mat-icon>
+                                                            </mat-button>
+                                                        </div>
+                                                    </div>
+
+
+
+                                                    <div fxLayout="column" fxLayout.gt-xs="row">
+                                                        <h5 style="min-width: 90px; max-width: 91px; font-weight: 600" class="mt-0">Child Details</h5> <br />
+                                                        <span style="min-width: 60px; max-width:61px">
+                                                            <mat-button>
+                                                                <mat-icon style="padding-left: 5px; color: #17780E;" (click)=" addNewCh()"> add_circle </mat-icon>
+                                                            </mat-button>
+
+                                                        </span>
+                                                    </div>
+
+                                                    <div *ngFor="let i = index; let chil of b().controls; " class="list-group list-group-flush">
+                                                        <div [formGroup]="chil">
+                                                            <div fxLayout="column" fxLayout.gt-xs="row">
+                                                                <!--<mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="33.33">
+
+                                                                    <input matInput value="Child" readonly
+                                                                           formControlName="FamCodeCEdit"
+                                                                           required />
+
+                                                                </mat-form-field>-->
+                                                            </div>
+                                                            <div fxLayout="column" fxLayout.gt-xs="row">
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Child's First Name</mat-label>
+                                                                    <input matInput [readonly]="iseditable"
+                                                                           formControlName="FFirstNameCEdit"
+                                                                           required />
+                                                                    <mat-error>
+                                                                        Child's First Name is required
+                                                                    </mat-error>
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class=" pr-sm-8 no-errors-spacer inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Child's 'Last Name</mat-label>
+                                                                    <input matInput [readonly]="iseditable"
+                                                                           formControlName="FLastNameCEdit" required />
+                                                                    <mat-error>
+                                                                        Child's' Last Name is required
+                                                                    </mat-error>
+                                                                </mat-form-field>
+
+
+
+
+
+                                                            </div>
+                                                            <div fxLayout="column" fxLayout.gt-xs="row">
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Child's 'Date of Birth</mat-label>
+                                                                    <input matInput [matDatepicker]="pickerchi" (click)="pickerchi.open()" [disabled]="iseditable" readonly
+                                                                           formControlName="FDOBCEdit" />
+                                                                    <mat-datepicker-toggle matSuffix [for]="pickerchi"></mat-datepicker-toggle>
+                                                                    <mat-datepicker #pickerchi></mat-datepicker>
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class=" pr-sm-8 no-errors-spacer inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Child's 'NIC Number</mat-label>
+                                                                    <input matInput [readonly]="iseditable"
+                                                                           formControlName="FNICCEdit" required />
+                                                                    <mat-error>
+                                                                        NIC Number is required
+                                                                    </mat-error>
+                                                                </mat-form-field>
+
+                                                            </div>
+
+                                                            <mat-button>
+                                                                <mat-icon style="padding: 5px; color: #FF0B24;  " (click)="removeChild(i)"> remove_circle </mat-icon>
+                                                            </mat-button>
+                                                        </div>
+                                                    </div>
+
+
+
+
+                                                </mat-expansion-panel>
+
+                                                <mat-expansion-panel (opened)="panelOpenState = true"
+                                                                     (closed)="panelOpenState = false">
+                                                    <mat-expansion-panel-header>
+                                                        <mat-panel-title style="min-width:40%">
+                                                            Education
+                                                        </mat-panel-title>
+                                                        <mat-panel-description>
+                                                            Information about your Education
+                                                        </mat-panel-description>
+                                                    </mat-expansion-panel-header>
+
+                                                    <div fxLayout="column" fxLayout.gt-xs="row">
+
+                                                        <h5 style="min-width: 170px; max-width: 171px; font-weight: 600" class="mt-0">Primary Education</h5> <br />
+                                                        <span>
+                                                            <mat-button>
+                                                                <mat-icon style="padding-left: 5px; color: #17780E;" (click)="addNewPr()"> add_circle </mat-icon>
+                                                            </mat-button>
+
+                                                        </span>
+                                                    </div>
+                                                    <div *ngFor="let i = index; let prim of c().controls; " class="list-group list-group-flush">
+                                                        <div [formGroup]="prim">
+                                                            <div fxLayout="column" fxLayout.gt-xs="row">
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="33.33">
+
+                                                                    <input matInput value="Primary" readonly
+                                                                           formControlName="PEduCodeEdit"
+                                                                           required />
+
+                                                                </mat-form-field>
+
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="100">
+
+                                                                    <input matInput
+                                                                           required readonly />
+                                                                    <mat-radio-group aria-label="Select an option" value="Primary" [readonly]="iseditable"
+                                                                                     formControlName="PEduTypeEdit" layout="row" style="padding: 10px;">
+
+                                                                        <mat-radio-button style="padding: 5px;" value="Government">Government</mat-radio-button>
+                                                                        <mat-radio-button style="padding: 5px;" value="Private">Private</mat-radio-button>
+                                                                        <mat-radio-button style="padding: 5px;" value="Semi - Government">Semi - Government</mat-radio-button>
+                                                                    </mat-radio-group>
+
+                                                                </mat-form-field>
+
+                                                            </div>
+                                                            <div fxLayout="column" fxLayout.gt-xs="row">
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Name of the School</mat-label>
+                                                                    <input matInput [readonly]="iseditable"
+                                                                           formControlName="PEduNameEdit"
+                                                                           required />
+                                                                    <mat-error>
+                                                                        Name of the School is required
+                                                                    </mat-error>
+                                                                </mat-form-field>
+
+
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Country</mat-label>
+                                                                    <mat-select matNativeControl required formControlName="PEduCountryEdit" [disabled]="iseditable">
+                                                                        <mat-option value="" disabled selected>Select Country</mat-option>
+                                                                        <mat-option *ngFor="let country of countries" [value]="country.name">{{country.name}}</mat-option>
+
+                                                                    </mat-select>
+                                                                    <mat-error>
+                                                                        Country is required
+                                                                    </mat-error>
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>City</mat-label>
+                                                                    <input matInput [readonly]="iseditable"
+                                                                           formControlName="PEduCityEdit"
+                                                                           required />
+                                                                    <mat-error>
+                                                                        City is required
+                                                                    </mat-error>
+                                                                </mat-form-field>
+                                                            </div>
+
+                                                            <div fxLayout="column" fxLayout.gt-xs="row">
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Start Year</mat-label>
+                                                                    <input matInput [matDatepicker]="pickerss" (click)="pickerss.open()" [disabled]="iseditable"
+                                                                           formControlName="PEduStartEdit" />
+                                                                    <mat-datepicker-toggle matSuffix [for]="pickerss"></mat-datepicker-toggle>
+                                                                    <mat-datepicker #pickerss startView="multi-year"></mat-datepicker>
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>End Year</mat-label>
+                                                                    <input matInput [matDatepicker]="pickerse" (click)="pickerse.open()" [disabled]="iseditable"
+                                                                           formControlName="PEduEndEdit" />
+                                                                    <mat-datepicker-toggle matSuffix [for]="pickerse"></mat-datepicker-toggle>
+                                                                    <mat-datepicker #pickerse></mat-datepicker>
+                                                                </mat-form-field>
+
+                                                            </div>
+
+                                                            <mat-button>
+                                                                <mat-icon style="padding: 5px; color: #FF0B24;" (click)=" removePrimary(i)"> remove_circle </mat-icon>
+                                                            </mat-button>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div fxLayout="column" fxLayout.gt-xs="row">
+
+                                                        <h5 style="min-width: 170px; max-width: 171px; font-weight: 600" class="mt-0">Secondary Education</h5> <br />
+                                                        <span>
+                                                            <mat-button>
+                                                                <mat-icon style="padding-left: 5px; color: #17780E; " (click)="addNewSe()"> add_circle </mat-icon>
+                                                            </mat-button>
+
+                                                        </span>
+                                                    </div>
+                                                    <div *ngFor="let i = index; let seco of d().controls;" class="list-group list-group-flush">
+                                                        <div [formGroup]="seco">
+                                                            <div fxLayout="column" fxLayout.gt-xs="row">
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="33.33">
+
+                                                                    <input matInput value="Secondary" readonly
+                                                                           formControlName="SEduCodeEdit"
+                                                                           required />
+
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="100">
+
+                                                                    <input matInput
+                                                                           required readonly />
+                                                                    <mat-radio-group aria-label="Select an option" value="Primary" [readonly]="iseditable"
+                                                                                     formControlName="SEduTypeEdit" layout="row" style="padding: 10px;">
+
+                                                                        <mat-radio-button style="padding: 5px;" value="Government">Government</mat-radio-button>
+                                                                        <mat-radio-button style="padding: 5px;" value="Private">Private</mat-radio-button>
+                                                                        <mat-radio-button style="padding: 5px;" value="Semi - Government">Semi - Government</mat-radio-button>
+                                                                    </mat-radio-group>
+
+                                                                </mat-form-field>
+                                                            </div>
+                                                            <div fxLayout="column" fxLayout.gt-xs="row">
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Name of the School</mat-label>
+                                                                    <input matInput [readonly]="iseditable"
+                                                                           formControlName="SEduNameEdit"
+                                                                           required />
+                                                                    <mat-error>
+                                                                        Name of the School is required
+                                                                    </mat-error>
+                                                                </mat-form-field>
+
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Country</mat-label>
+                                                                    <mat-select matNativeControl required formControlName="SEduCountryEdit" [disabled]="iseditable">
+                                                                        <mat-option value="" disabled selected>Select Country</mat-option>
+                                                                        <mat-option *ngFor="let country of countries" [value]="country.name">{{country.name}}</mat-option>
+
+                                                                    </mat-select>
+                                                                    <mat-error>
+                                                                        Country is required
+                                                                    </mat-error>
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>City</mat-label>
+                                                                    <input matInput [readonly]="iseditable"
+                                                                           formControlName="SEduCityEdit"
+                                                                           required />
+                                                                    <mat-error>
+                                                                        City is required
+                                                                    </mat-error>
+                                                                </mat-form-field>
+                                                            </div>
+
+                                                            <div fxLayout="column" fxLayout.gt-xs="row">
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Start Year</mat-label>
+                                                                    <input matInput [matDatepicker]="pickersecs" (click)="pickersecs.open()" [disabled]="iseditable" readonly
+                                                                           formControlName="SEduStartEdit" />
+                                                                    <mat-datepicker-toggle matSuffix [for]="pickersecs"></mat-datepicker-toggle>
+                                                                    <mat-datepicker #pickersecs></mat-datepicker>
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>End Year</mat-label>
+                                                                    <input matInput [matDatepicker]="pickersece" (click)="pickersece.open()" [disabled]="iseditable" readonly
+                                                                           formControlName="SEduEndEdit" />
+                                                                    <mat-datepicker-toggle matSuffix [for]="pickersece"></mat-datepicker-toggle>
+                                                                    <mat-datepicker #pickersece></mat-datepicker>
+                                                                </mat-form-field>
+
+                                                            </div>
+
+                                                            <mat-button>
+                                                                <mat-icon style="padding: 5px; color: #FF0B24;" (click)="removeSecondary(i)"> remove_circle </mat-icon>
+                                                            </mat-button>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div fxLayout="column" fxLayout.gt-xs="row">
+
+                                                        <h5 style="min-width: 170px; max-width: 171px; font-weight: 600" class="mt-0">Tertiary Education</h5> <br />
+                                                        <span>
+                                                            <mat-button>
+                                                                <mat-icon style="padding-left: 5px; color: #17780E;" (click)="addNewTe()"> add_circle </mat-icon>
+                                                            </mat-button>
+
+                                                        </span>
+                                                    </div>
+                                                    <div *ngFor=" let i = index; let tert of e().controls;" class="list-group list-group-flush">
+                                                        <div [formGroup]="tert">
+                                                            <div fxLayout="column" fxLayout.gt-xs="row">
+
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <input matInput
+                                                                           required readonly />
+                                                                    <mat-radio-group aria-label="Select an option" value="Primary" [readonly]="iseditable"
+                                                                                     formControlName="TertStatusEdit" layout="row" style="padding: 10px;">
+
+                                                                        <mat-radio-button style="padding: 5px;" value="Ongoing">Ongoing</mat-radio-button>
+                                                                        <mat-radio-button style="padding: 5px;" value="Completed">Completed</mat-radio-button>
+
+                                                                    </mat-radio-group>
+
+                                                                </mat-form-field>
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Education Level</mat-label>
+                                                                    <mat-select matNativeControl formControlName="TertLevelEdit" required [readonly]="iseditable">
+                                                                        <mat-option value="Certificate">Certificate.</mat-option>
+                                                                        <mat-option value="Diploma">Diploma.</mat-option>
+                                                                        <mat-option value="Higher Diploma">Higher Diploma.</mat-option>
+                                                                        <mat-option value="Bachelor Degree">Bachelor Degree.</mat-option>
+                                                                        <mat-option value="Masters Degree">Masters Degree.</mat-option>
+                                                                        <mat-option value="MPhil">MPhil.</mat-option>
+                                                                        <mat-option value="PhD">PhD.</mat-option>
+                                                                    </mat-select>
+                                                                    <mat-error>
+                                                                        Education Level is required
+                                                                    </mat-error>
+                                                                </mat-form-field>
+
+                                                            </div>
+                                                            <div fxLayout="column" fxLayout.gt-xs="row">
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Name of the Institute</mat-label>
+                                                                    <input matInput [readonly]="iseditable"
+                                                                           formControlName="TertNameEdit"
+                                                                           required />
+                                                                    <mat-error>
+                                                                        Name of the Institute is required
+                                                                    </mat-error>
+                                                                </mat-form-field>
+
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Country</mat-label>
+                                                                    <mat-select matNativeControl required formControlName="TertCountryEdit" [disabled]="iseditable">
+                                                                        <mat-option value="" disabled selected>Select Country</mat-option>
+                                                                        <mat-option *ngFor="let country of countries" [value]="country.name">{{country.name}}</mat-option>
+
+                                                                    </mat-select>
+                                                                    <mat-error>
+                                                                        Country is required
+                                                                    </mat-error>
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>City</mat-label>
+                                                                    <input matInput [readonly]="iseditable"
+                                                                           formControlName="TertCityEdit"
+                                                                           required />
+                                                                    <mat-error>
+                                                                        City is required
+                                                                    </mat-error>
+                                                                </mat-form-field>
+                                                            </div>
+
+                                                            <div fxLayout="column" fxLayout.gt-xs="row">
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Start Year</mat-label>
+                                                                    <input matInput [matDatepicker]="pickerters" (click)="pickerters.open()" [disabled]="iseditable" readonly
+                                                                           formControlName="TertStartEdit" />
+                                                                    <mat-datepicker-toggle matSuffix [for]="pickerters"></mat-datepicker-toggle>
+                                                                    <mat-datepicker #pickerters></mat-datepicker>
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>End Year</mat-label>
+                                                                    <input matInput [matDatepicker]="pickertere" (click)="pickertere.open()" [disabled]="iseditable" readonly
+                                                                           formControlName="TertEndEdit" />
+                                                                    <mat-datepicker-toggle matSuffix [for]="pickertere"></mat-datepicker-toggle>
+                                                                    <mat-datepicker #pickertere></mat-datepicker>
+                                                                </mat-form-field>
+
+                                                            </div>
+
+                                                            <mat-button>
+                                                                <mat-icon style="padding: 5px; color: #FF0B24;" (click)="removeTert(i)"> remove_circle </mat-icon>
+                                                            </mat-button>
+                                                        </div>
+                                                    </div>
+
+                                                    <div fxLayout="column" fxLayout.gt-xs="row">
+
+                                                        <h5 style="min-width: 170px; max-width: 171px; font-weight: 600" class="mt-0">Professional Qualifications</h5> <br />
+                                                        <span>
+                                                            <mat-button>
+                                                                <mat-icon style="padding-left: 5px; color: #17780E;" (click)="addNewPq()"> add_circle </mat-icon>
+                                                            </mat-button>
+
+                                                        </span>
+                                                    </div>
+                                                    <div *ngFor="let i = index; let prof of f().controls;" class="list-group list-group-flush">
+                                                        <div [formGroup]="prof">
+                                                            <div fxLayout="column" fxLayout.gt-xs="row">
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Qualification</mat-label>
+                                                                    <input matInput [readonly]="iseditable"
+                                                                           formControlName="ProfessionalQualEdit"
+                                                                           required />
+                                                                    <mat-error>
+                                                                        Name of the Qualification is required
+                                                                    </mat-error>
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Awarding Body</mat-label>
+                                                                    <input matInput [readonly]="iseditable"
+                                                                           formControlName="AwardingBodyEdit"
+                                                                           required />
+                                                                    <mat-error>
+                                                                        Name of the Institute is required
+                                                                    </mat-error>
+                                                                </mat-form-field>
+                                                            </div>
+
+                                                            <mat-button>
+                                                                <mat-icon style="padding: 5px; color: #FF0B24;" (click)="removeProfQual(index)"> remove_circle </mat-icon>
+                                                            </mat-button>
+                                                        </div>
+                                                    </div>
+
+
+
+                                                </mat-expansion-panel>
+
+                                                <mat-expansion-panel (opened)="panelOpenState = true"
+                                                                     (closed)="panelOpenState = false">
+                                                    <mat-expansion-panel-header>
+                                                        <mat-panel-title style="min-width:40%">
+                                                            Employment
+                                                        </mat-panel-title>
+                                                        <mat-panel-description>
+                                                            Your Employment History
+                                                        </mat-panel-description>
+                                                    </mat-expansion-panel-header>
+                                                    <div fxLayout="column" fxLayout.gt-xs="row">
+                                                        <h5 style="min-width: 160px; max-width: 161px; font-weight: 600" class="mt-0">Employment Details</h5> <br />
+                                                        <span>
+                                                            <mat-button>
+                                                                <mat-icon style="padding-left: 5px; color: #17780E;" (click)="addNewEmp()"> add_circle </mat-icon>
+                                                            </mat-button>
+
+                                                        </span>
+                                                    </div>
+                                                    <div *ngFor="let i = index; let empl of g().controls; " class="list-group list-group-flush">
+                                                        <div [formGroup]="empl">
+
+                                                            <div fxLayout="column" fxLayout.gt-xs="row">
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 no-errors-spacer inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Employer Name</mat-label>
+                                                                    <input matInput [readonly]="iseditable"
+                                                                           formControlName="EmpNameEdit" />
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 no-errors-spacer inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Field</mat-label>
+                                                                    <input matInput [readonly]="iseditable"
+                                                                           formControlName="FieldEdit" />
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 no-errors-spacer inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Designation</mat-label>
+                                                                    <input matInput [readonly]="iseditable"
+                                                                           formControlName="DesignationEdit" />
+                                                                </mat-form-field>
+
+                                                            </div>
+                                                            <div fxLayout="column" fxLayout.gt-xs="row">
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Employed From</mat-label>
+                                                                    <input matInput [matDatepicker]="pickerempf" (click)="pickerempf.open()" [disabled]="iseditable" readonly
+                                                                           formControlName="EmpFromEdit" />
+                                                                    <mat-datepicker-toggle matSuffix [for]="pickerempf"></mat-datepicker-toggle>
+                                                                    <mat-datepicker #pickerempf></mat-datepicker>
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Employed To</mat-label>
+                                                                    <input matInput [matDatepicker]="pickerempt" (click)="pickerempt.open()" [disabled]="iseditable" readonly
+                                                                           formControlName="EmpToEdit" />
+                                                                    <mat-datepicker-toggle matSuffix [for]="pickerempt"></mat-datepicker-toggle>
+                                                                    <mat-datepicker #pickerempt></mat-datepicker>
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 no-errors-spacer inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Career Aspiration</mat-label>
+                                                                    <input matInput [readonly]="iseditable"
+                                                                           formControlName="CareerAspEdit" />
+                                                                </mat-form-field>
+
+
+                                                            </div>
+
+                                                            <mat-button>
+                                                                <mat-icon style="padding: 5px; color: #FF0B24;" (click)="removeEmployment(i)"> remove_circle </mat-icon>
+                                                            </mat-button>
+                                                        </div>
+                                                    </div>
+
+                                                    <div fxLayout="column" fxLayout.gt-xs="row">
+                                                        <h5 style="min-width: 160px; max-width: 161px; font-weight: 600" class="mt-0">Self Employment Details</h5>
+                                                        <span>
+                                                            <mat-button>
+                                                                <mat-icon style="padding-left: 5px; color: #17780E;" (click)="addNewSelf()"> add_circle </mat-icon>
+                                                            </mat-button>
+
+                                                        </span>
+                                                    </div>
+                                                    <div *ngFor="let i = index; let self of h().controls;" class="list-group list-group-flush">
+                                                        <div [formGroup]="self">
+
+                                                            <div fxLayout="column" fxLayout.gt-xs="row">
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 no-errors-spacer inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Business Name</mat-label>
+                                                                    <input matInput [readonly]="iseditable"
+                                                                           formControlName="BusinessNameEdit" />
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 no-errors-spacer inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Business Nature</mat-label>
+                                                                    <input matInput [readonly]="iseditable"
+                                                                           formControlName="BusinessNatureEdit" />
+                                                                </mat-form-field>
+
+                                                            </div>
+                                                            <div fxLayout="column" fxLayout.gt-xs="row">
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 no-errors-spacer inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Business Registration ID</mat-label>
+                                                                    <input matInput [readonly]="iseditable"
+                                                                           formControlName="BRIDEdit" />
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 no-errors-spacer inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Annual Income</mat-label>
+                                                                    <input matInput [readonly]="iseditable"
+                                                                           formControlName="AnnualIncomeEdit" />
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 no-errors-spacer inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Tax File Number</mat-label>
+                                                                    <input matInput [readonly]="iseditable"
+                                                                           formControlName="TaxFileNoEdit" />
+                                                                </mat-form-field>
+
+                                                            </div>
+
+                                                            <mat-button>
+                                                                <mat-icon style="padding: 5px; color: #FF0B24;" (click)="removeSelfEmp(i)"> remove_circle </mat-icon>
+                                                            </mat-button>
+                                                        </div>
+                                                    </div>
+
+
+
+
+                                                </mat-expansion-panel>
+
+                                                <mat-expansion-panel (opened)="panelOpenState = true"
+                                                                     (closed)="panelOpenState = false">
+                                                    <mat-expansion-panel-header>
+                                                        <mat-panel-title style="min-width:40%">
+                                                            Wealth
+                                                        </mat-panel-title>
+                                                        <mat-panel-description>
+                                                            Your Ownership
+                                                        </mat-panel-description>
+                                                    </mat-expansion-panel-header>
+
+
+
+                                                    <div fxLayout="column" fxLayout.gt-xs="row">
+
+                                                        <h5 style="min-width: 140px; max-width: 141px; font-weight: 600" class="mt-0">Banking Details</h5>
+                                                        <span>
+                                                            <mat-button>
+                                                                <mat-icon style="padding-left: 5px; color: #17780E; " (click)="addNewBank()"> add_circle </mat-icon>
+                                                            </mat-button>
+
+                                                        </span>
+                                                    </div>
+
+                                                    <div *ngFor="let i = index; let bankk of j().controls; " class="list-group list-group-flush">
+                                                        <div [formGroup]="bankk">
+
+                                                            <div fxLayout="column" fxLayout.gt-xs="row">
+
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class=" pr-sm-8 no-errors-spacer inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Bank Name</mat-label>
+
+                                                                    <mat-select matNativeControl required formControlName="BankNameEdit" [disabled]="iseditable">
+                                                                        <mat-option value="" disabled selected>Select Bank</mat-option>
+                                                                        <mat-option *ngFor="let bank of banks" [value]="bank.name">{{bank.name}}</mat-option>
+
+                                                                    </mat-select>
+                                                                    <mat-error>
+                                                                        Bank is required
+                                                                    </mat-error>
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Branch</mat-label>
+                                                                    <input matInput [readonly]="iseditable"
+                                                                           formControlName="BranchEdit"
+                                                                           required />
+                                                                    <mat-error>
+                                                                        Branch is required
+                                                                    </mat-error>
+                                                                </mat-form-field>
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Account Number</mat-label>
+                                                                    <input matInput [readonly]="iseditable"
+                                                                           formControlName="AccNoEdit"
+                                                                           required />
+                                                                    <mat-error>
+                                                                        Account Number is required
+                                                                    </mat-error>
+                                                                </mat-form-field>
+
+                                                            </div>
+
+                                                            <mat-button>
+                                                                <mat-icon style="padding: 5px; color: #FF0B24;" (click)="removeBank(i)"> remove_circle </mat-icon>
+                                                            </mat-button>
+                                                        </div>
+                                                    </div>
+
+                                                    <div fxLayout="column" fxLayout.gt-xs="row">
+
+                                                        <h5 style="min-width: 140px; max-width: 141px; font-weight: 600" class="mt-0">Immovable Properties</h5>
+                                                        <span>
+                                                            <mat-button>
+                                                                <mat-icon style="padding-left: 5px; color: #17780E;" (click)="addNewIm()"> add_circle </mat-icon>
+                                                            </mat-button>
+
+                                                        </span>
+                                                    </div>
+
+                                                    <div *ngFor="let i = index; let immo of l().controls; " class="list-group list-group-flush">
+                                                        <div [formGroup]="immo">
+
+                                                            <div fxLayout="column" fxLayout.gt-xs="row">
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Property Type</mat-label>
+                                                                    <mat-select matNativeControl formControlName="ImPropTypeEdit" required [readonly]="iseditable">
+                                                                        <mat-option value="House">House.</mat-option>
+                                                                        <mat-option value="Land">Land.</mat-option>
+                                                                        <mat-option value="Building">Building.</mat-option>
+
+                                                                    </mat-select>
+                                                                    <mat-error>
+                                                                        Property Type is required
+                                                                    </mat-error>
+                                                                </mat-form-field>
+                                                            </div>
+                                                            <div fxLayout="column" fxLayout.gt-xs="row">
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="20">
+                                                                    <mat-label>House Number</mat-label>
+                                                                    <input matInput [readonly]="iseditable"
+                                                                           formControlName="ImHouseNoEdit"
+                                                                           required />
+                                                                    <mat-error>
+                                                                        House Number is required
+                                                                    </mat-error>
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="30">
+                                                                    <mat-label>Address Line 1</mat-label>
+                                                                    <input matInput [readonly]="iseditable"
+                                                                           formControlName="ImPAddrLine1Edit"
+                                                                           required />
+                                                                    <mat-error>
+                                                                        Address Line 1 is required
+                                                                    </mat-error>
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="30">
+                                                                    <mat-label>Address Line 2</mat-label>
+                                                                    <input matInput [readonly]="iseditable"
+                                                                           formControlName="AddrLine2Edit"
+                                                                           required />
+                                                                    <mat-error>
+                                                                        Address Line 2 is required
+                                                                    </mat-error>
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="20">
+                                                                    <mat-label>Postal Code</mat-label>
+                                                                    <input matInput [readonly]="iseditable"
+                                                                           formControlName="PostalCodeEdit"
+                                                                           required />
+                                                                    <mat-error>
+                                                                        Postal Code is required
+                                                                    </mat-error>
+                                                                </mat-form-field>
+                                                            </div>
+
+                                                            <div fxLayout="column" fxLayout.gt-xs="row">
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Grama Niladhari Division</mat-label>
+                                                                    <input matInput [readonly]="iseditable"
+                                                                           formControlName="GramaNiladariDivEdit"
+                                                                           required />
+                                                                    <mat-error>
+                                                                        Grama Niladhari Division is required
+                                                                    </mat-error>
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>City</mat-label>
+                                                                    <input matInput [readonly]="iseditable"
+                                                                           formControlName="CityEdit"
+                                                                           required />
+                                                                    <mat-error>
+                                                                        City is required
+                                                                    </mat-error>
+                                                                </mat-form-field>
+
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class=" pr-sm-8 no-errors-spacer inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>District</mat-label>
+
+                                                                    <mat-select matNativeControl required formControlName="DistrictEdit" [disabled]="iseditable">
+                                                                        <mat-option value="" disabled selected>Select District</mat-option>
+                                                                        <mat-option *ngFor="let district of districts" [value]="district.name">{{district.name}}</mat-option>
+
+                                                                    </mat-select>
+                                                                    <mat-error>
+                                                                        Province is required
+                                                                    </mat-error>
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class=" pr-sm-8 no-errors-spacer inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Province</mat-label>
+
+                                                                    <mat-select matNativeControl required formControlName="ProvinceEdit" [disabled]="iseditable">
+                                                                        <mat-option value="" disabled selected>Select Province</mat-option>
+                                                                        <mat-option *ngFor="let province of provinces" [value]="province.name">{{province.name}}</mat-option>
+
+                                                                    </mat-select>
+                                                                    <mat-error>
+                                                                        Province is required
+                                                                    </mat-error>
+                                                                </mat-form-field>
+
+
+                                                            </div>
+
+                                                            <mat-button>
+                                                                <mat-icon style="padding: 5px; color: #FF0B24;" (click)="removePropIm(i)"> remove_circle </mat-icon>
+                                                            </mat-button>
+                                                        </div>
+                                                    </div>
+
+                                                    <div fxLayout="column" fxLayout.gt-xs="row">
+
+                                                        <h5 style="min-width: 140px; max-width: 141px; font-weight: 600" class="mt-0">Movable Properties</h5>
+                                                        <span>
+                                                            <mat-button>
+                                                                <mat-icon style="padding-left: 5px; color: #17780E; " (click)="addNewMo()"> add_circle </mat-icon>
+                                                            </mat-button>
+
+                                                        </span>
+                                                    </div>
+
+                                                    <div *ngFor="let i = index; let mova of m().controls; " class="list-group list-group-flush">
+                                                        <div [formGroup]="mova">
+
+                                                            <div fxLayout="column" fxLayout.gt-xs="row">
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Property Type</mat-label>
+                                                                    <mat-select matNativeControl formControlName="PropMoTypeEdit" required [readonly]="iseditable">
+                                                                        <mat-option value="Bus">Bus</mat-option>
+                                                                        <mat-option value="Car">Car</mat-option>
+                                                                        <mat-option value="Lorry">Lorry</mat-option>
+                                                                        <mat-option value="Bike">Motor Bike</mat-option>
+                                                                        <mat-option value="TukTuk">THree Wheeler</mat-option>
+
+                                                                    </mat-select>
+                                                                    <mat-error>
+                                                                        Property Type is required
+                                                                    </mat-error>
+
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="20">
+                                                                    <mat-label>Vehicle Number</mat-label>
+                                                                    <input matInput [readonly]="iseditable"
+                                                                           formControlName="PropMoNumberEdit"
+                                                                           required />
+                                                                    <mat-error>
+                                                                        Vehicle Number is required
+                                                                    </mat-error>
+                                                                </mat-form-field>
+                                                            </div>
+
+                                                            <mat-button>
+                                                                <mat-icon style="padding: 5px; color: #FF0B24;" (click)="removePropMo(i)"> remove_circle </mat-icon>
+                                                            </mat-button>
+                                                        </div>
+                                                    </div>
+
+
+
+                                                </mat-expansion-panel>
+
+                                                <mat-expansion-panel (opened)="panelOpenState = true"
+                                                                     (closed)="panelOpenState = false">
+                                                    <mat-expansion-panel-header>
+                                                        <mat-panel-title style="min-width:40%">
+                                                            Leisure and Sports
+                                                        </mat-panel-title>
+                                                        <mat-panel-description>
+                                                            Information about your Leisure Activities
+                                                        </mat-panel-description>
+                                                    </mat-expansion-panel-header>
+
+                                                    <h5 style="font-weight: 600" class="mt-0">Hobbies, Sports, and Leisure Activities</h5>
+
+                                                    <div fxLayout="column" fxLayout.gt-xs="row">
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class="pr-sm-8 inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>Leisure Activities</mat-label>
+                                                            <input matInput [readonly]="iseditable"
+                                                                   formControlName="LeisureEdit"
+                                                                   required />
+                                                            <mat-error>
+                                                                Leisure Activities are required
+                                                            </mat-error>
+                                                        </mat-form-field>
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class="pr-sm-8 inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>Sports</mat-label>
+                                                            <input matInput [readonly]="iseditable"
+                                                                   formControlName="SportEdit"
+                                                                   required />
+                                                            <mat-error>
+                                                                Sports are required
+                                                            </mat-error>
+                                                        </mat-form-field>
+
+                                                        <mat-form-field appearance="outline"
+                                                                        class="pr-sm-8 inputControl"
+                                                                        fxFlex="33.33">
+                                                            <mat-label>Hobbies</mat-label>
+                                                            <input matInput [readonly]="iseditable"
+                                                                   formControlName="HobbyEdit"
+                                                                   required />
+                                                            <mat-error>
+                                                                Hobbies are required
+                                                            </mat-error>
+                                                        </mat-form-field>
+                                                    </div>
+
+
+                                                    <div fxLayout="column" fxLayout.gt-xs="row">
+
+                                                        <h5 style="min-width: 120px; max-width: 121px; font-weight: 600" class="mt-0">Achievements</h5>
+                                                        <span>
+                                                            <mat-button>
+                                                                <mat-icon style="padding-left: 5px; color: #17780E;" (click)="addNewAch()"> add_circle </mat-icon>
+                                                            </mat-button>
+
+                                                        </span>
+                                                    </div>
+
+                                                    <div *ngFor="let i = index; let achi of n().controls; " class="list-group list-group-flush">
+                                                        <div [formGroup]="achi">
+
+                                                            <div fxLayout="column" fxLayout.gt-xs="row">
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Achievement Level</mat-label>
+                                                                    <mat-select matNativeControl formControlName="AchievementLevelEdit" required [readonly]="iseditable">
+                                                                        <mat-option value="Divisional">Divisional Level.</mat-option>
+                                                                        <mat-option value="District">District Level.</mat-option>
+                                                                        <mat-option value="Provincial">Provincial Level.</mat-option>
+                                                                        <mat-option value="National">National Level.</mat-option>
+                                                                        <mat-option value="International">International.</mat-option>
+
+                                                                    </mat-select>
+                                                                    <mat-error>
+                                                                        Property Type is required
+                                                                    </mat-error>
+                                                                </mat-form-field>
+                                                            </div>
+                                                            <div fxLayout="column" fxLayout.gt-xs="row">
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Activity</mat-label>
+                                                                    <input matInput [readonly]="iseditable"
+                                                                           formControlName="ActivityEdit"
+                                                                           required />
+                                                                    <mat-error>
+                                                                        Activitiy is required
+                                                                    </mat-error>
+                                                                </mat-form-field>
+
+                                                                <mat-form-field appearance="outline"
+                                                                                class="pr-sm-8 inputControl"
+                                                                                fxFlex="33.33">
+                                                                    <mat-label>Award</mat-label>
+                                                                    <input matInput [readonly]="iseditable"
+                                                                           formControlName="AwardEdit"
+                                                                           required />
+                                                                    <mat-error>
+                                                                        Award is required
+                                                                    </mat-error>
+                                                                </mat-form-field>
+                                                            </div>
+
+                                                            <mat-button>
+                                                                <mat-icon style="padding: 5px; color: #FF0B24;" (click)="removeAchievements(i)"> remove_circle </mat-icon>
+                                                            </mat-button>
+                                                        </div>
+                                                    </div>
+
+
+
+                                                </mat-expansion-panel>
+
+
+
+                                            </div>
+
+                                            <div fxLayout="row" fxLayoutAlign="space-between center" class="button-section mt-15" style="right: 10px; bottom:10px; ">
+                                                <div style="color:goldenrod;">
+                                                    <button mat-raised-button style="background-color: goldenrod; " class="mr-5 mb-xs-15" aria-label="Edit"
+                                                            (click)="enableeditform()">
+                                                        Edit Profile
+                                                    </button>
+                                                    <button mat-raised-button class="submit-button" aria-label="Change Password"
+                                                            (click)="updateUserPassword()" *ngIf="Authtype!='O365'">
+                                                        Change Password
+                                                    </button>
+                                                </div>
+                                                <div fxLayoutAlign="end center" style="">
+                                                    <!--color="accent"- ->
+                                                    <!--[disabled]="Editform.invalid || iseditable"-->
+                                                    <button mat-raised-button class="success-btn" [disabled]="Editform.invalid || iseditable" aria-label="Register"
+                                                            (click)="updateUser()">
+                                                        Save Changes
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+
+                                    </div>
+
+
+
+
+                                </div>
+                            </div>
+
+
+
+
+                        </mat-accordion>
+
+
+
+
+                        <!--<div fxLayout="row wrap"
+                             fxLayoutAlign="start center"
+                             fxFlex="1 0 auto">
+                        </div>-->
+
+
+
+
+
+
+
+
+
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <!-- / CONTENT -->
+</div>
+
+
+
